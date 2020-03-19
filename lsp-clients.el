@@ -837,7 +837,7 @@ responsiveness at the cost of possible stability issues."
   :tag "Language Server"
   :link '(url-link "https://github.com/tomi/vscode-rf-language-server.git"))
 
-(defcustom lsp-rf-language-server-start-command '("~/.nvm/versions/node/v9.11.2/bin/node" "~/.vscode/extensions/tomiturtiainen.rf-intellisense-2.8.0/server/server.js")
+(defcustom lsp-rf-language-server-start-command (list (shell-command-to-string "echo -n $(type -p node)") "~/.vscode/extensions/tomiturtiainen.rf-intellisense-2.8.0/server/server.js")
   "Path to the server.js file of the rf-intellisense server. Accepts a list of strings (path/to/interpreter path/to/server.js)"
   :type 'list
   :group 'lsp-rf)
